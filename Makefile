@@ -45,6 +45,10 @@ clean: ## Clean the build directory using Mave
 	@echo "Cleaning build directory with Maven..."
 	$(MAVEN) clean
 
+sonar: ## run sonar with TOKEN
+	mvn clean verify sonar:sonar -Dsonar.login=squ_09212ea405787ec4d23f47da38dd1cf49cf2bdac
+
+
 # Rebuild the project using Maven
 rebuild: clean all
 
