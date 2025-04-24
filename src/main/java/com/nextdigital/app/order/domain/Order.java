@@ -3,6 +3,7 @@ package com.nextdigital.app.order.domain;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import java.util.ArrayList;
@@ -12,12 +13,13 @@ import java.util.List;
 @Builder
 @Accessors(fluent = true)
 @Setter
+@ToString
 public class Order {
-    private Long id;
+    public Long id;
     @Builder.Default
-    private OrderStatus status = OrderStatus.CREATED;
+    public OrderStatus status = OrderStatus.CREATED;
     @Builder.Default
-    private List<Item> items = new ArrayList<>();
+    public List<Item> items = new ArrayList<>();
 
     public double getTotalPrice() {
         double total = 0;

@@ -80,3 +80,52 @@ or
 ```shell
 make test
 ```
+
+# Query API with curl commands
+
+Sure! Here are the `curl` commands to interact with your API running on `localhost:8080`.
+
+---
+
+### ✅ Create an Order
+
+```bash
+curl -X POST http://localhost:8080/api/orders \
+  -H "Content-Type: application/json"
+```
+
+---
+
+### ✅ Get All Orders
+
+```bash
+curl http://localhost:8080/api/orders
+```
+
+---
+
+### ✅ Pay an Order
+
+Let’s say you got this response from creating an order:
+
+```json
+{
+  "id": 1,
+  "status": "CREATED",
+  "items": []
+}
+```
+
+Now you can pay it with:
+
+```bash
+curl -X POST http://localhost:8080/api/orders/1/pay \
+  -H "Content-Type: application/json" \
+  -d '{
+        "id": 1,
+        "status": "CREATED",
+        "items": []
+      }'
+```
+
+> ⚠️ Make sure the JSON you send in `-d` matches the structure of your actual `Order`.
